@@ -18,22 +18,20 @@
         </div>
     </header>
     <main>
-        <section>
-            <button>Nuevo</button>
-            <div>
-                <select>
+        <section class="cont_filters">
+            <button class="button_new">Nuevo</button>
+            <div class="cont_checked">
+                <select class="select_categoria">
                     <option>Categorias</option>
                 </select>
-            </div>
-            <div>
-                <label>
-                    <input type="checkbox" name="stock_cant"/> Con Stock 
+                <label class="label_stock">
+                    <input type="checkbox" name="stock_cant" class="check_stock" checked/> Con Stock 
                 </label>
-                <label>
-                    <input type="checkbox" name="stock_cant"/> Poco Stock 
+                <label class="label_stock">
+                    <input type="checkbox" name="stock_cant" class="check_stock"/> Poco Stock 
                 </label>
-                <label>
-                    <input type="checkbox" name="stock_cant"/> Sin Stock 
+                <label class="label_stock">
+                    <input type="checkbox" name="stock_cant" class="check_stock"/> Sin Stock 
                 </label>
             </div>
         </section>
@@ -131,6 +129,14 @@
             </table>
         </section>
     </main>
+    <footer>
+        <p><span>Proyecto: </span>Stock Offline</p>
+        <div>
+            <img src="./public/html5.png"/>
+            <img src="./public/css3.png"/>
+            <img src="./public/javascript.png"/>
+        </div>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>
