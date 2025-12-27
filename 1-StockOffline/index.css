@@ -135,3 +135,15 @@ table tbody tr td button{
         color: var(--color5);
     }
 }
+footer{
+    background-color: var(--color5);
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+footer p{
+    color: var(--color1);
+    margin-bottom: 10px;
+}
