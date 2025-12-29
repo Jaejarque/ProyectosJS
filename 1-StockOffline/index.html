@@ -1,151 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Proyecto: Stock Offline</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div>
-            <h1><span>Stock</span> Offline</h1>
-        </div>
-        <div>
-            <button>Modo</button>
-            <button>Historial</button>
-            <button>Alertas</button>
-        </div>
+      <div>
+        <h1><span>Stock</span> Offline</h1>
+      </div>
+      <div class="cont_button_nav">
+        <button class="button_nav">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+            />
+          </svg>
+        </button>
+        <button class="button_nav">
+          <!--
+category: System
+tags: [time, watch, alarm]
+version: "1.0"
+unicode: "ea70"
+-->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+        </button>
+        <button class="button_nav">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M320 480H192v-96h128v96zm-16-160h-96L192 32h128l-16 288z"
+            />
+          </svg>
+        </button>
+      </div>
     </header>
     <main>
-        <div>
-            <input type="search" placeholder="Buscar producto..."/>
-            <button>Buscar</button>
+      <div class="cont_input_search">
+        <div class="cont_search">
+          <input type="search" placeholder="Buscar producto..." class="input_search"/>
+          <button class="button_search">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 1941 1941"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1290.667 960q0-185-131.5-316.5T842.667 512t-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"
+              />
+            </svg>
+          </button>
         </div>
+        <div class="cont_button_nuevo">
+          <button class="button">
+            <svg
+            width="24"
+              height="24"
+            xmlns="http://www.w3.org/2000/svg" baseProfile="full" viewBox="0 0 76.00 76.00"><path d="M35 19h6v16h16v6H41v16h-6V41H19v-6h16V19z"/></svg>
+            Nuevo
+            </button>
+        </div>
+      </div>
+
+
+      <div>
+        <select>
+          <option>Categorias</option>
+        </select>
 
         <div>
-            <button>Nuevo</button>
+          <label>
+            <input type="checkbox" />
+            Con Stock
+          </label>
+
+          <label>
+            <input type="checkbox" />
+            Poco Stock
+          </label>
+
+          <label>
+            <input type="checkbox" />
+            Sin Stock
+          </label>
         </div>
+      </div>
 
-        <div>
-            <select>
-                <option>Categorias</option>
-            </select>
-            
-            <div>
-                <label>
-                    <input type="checkbox"/>
-                    Con Stock
-                </label>
-
-                <label>
-                    <input type="checkbox"/>
-                    Poco Stock
-                </label>
-
-                <label>
-                    <input type="checkbox"/>
-                    Sin Stock
-                </label>
-            </div>
-        </div>
-
-
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Producto</th>
-                        <th>Categoria</th>
-                        <th>Estado</th>
-                        <th>Stock</th>
-                        <th>Stock Minimo</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Coca Cola</td>
-                        <td>Bebidas</td>
-                        <td>Con Stock</td>
-                        <td>50</td>
-                        <td>10</td>
-                        <td>
-                            <button>Mas</button>
-                            <button>Menos</button>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Coca Cola</td>
-                        <td>Bebidas</td>
-                        <td>Con Stock</td>
-                        <td>50</td>
-                        <td>10</td>
-                        <td>
-                            <button>Mas</button>
-                            <button>Menos</button>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Coca Cola</td>
-                        <td>Bebidas</td>
-                        <td>Con Stock</td>
-                        <td>50</td>
-                        <td>10</td>
-                        <td>
-                            <button>Mas</button>
-                            <button>Menos</button>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Coca Cola</td>
-                        <td>Bebidas</td>
-                        <td>Con Stock</td>
-                        <td>50</td>
-                        <td>10</td>
-                        <td>
-                            <button>Mas</button>
-                            <button>Menos</button>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Coca Cola</td>
-                        <td>Bebidas</td>
-                        <td>Con Stock</td>
-                        <td>50</td>
-                        <td>10</td>
-                        <td>
-                            <button>Mas</button>
-                            <button>Menos</button>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Producto</th>
+              <th>Categoria</th>
+              <th>Estado</th>
+              <th>Stock</th>
+              <th>Stock Minimo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Coca Cola</td>
+              <td>Bebidas</td>
+              <td>Con Stock</td>
+              <td>50</td>
+              <td>10</td>
+              <td>
+                <button>Mas</button>
+                <button>Menos</button>
+                <button>Editar</button>
+                <button>Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Coca Cola</td>
+              <td>Bebidas</td>
+              <td>Con Stock</td>
+              <td>50</td>
+              <td>10</td>
+              <td>
+                <button>Mas</button>
+                <button>Menos</button>
+                <button>Editar</button>
+                <button>Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Coca Cola</td>
+              <td>Bebidas</td>
+              <td>Con Stock</td>
+              <td>50</td>
+              <td>10</td>
+              <td>
+                <button>Mas</button>
+                <button>Menos</button>
+                <button>Editar</button>
+                <button>Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Coca Cola</td>
+              <td>Bebidas</td>
+              <td>Con Stock</td>
+              <td>50</td>
+              <td>10</td>
+              <td>
+                <button>Mas</button>
+                <button>Menos</button>
+                <button>Editar</button>
+                <button>Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Coca Cola</td>
+              <td>Bebidas</td>
+              <td>Con Stock</td>
+              <td>50</td>
+              <td>10</td>
+              <td>
+                <button>Mas</button>
+                <button>Menos</button>
+                <button>Editar</button>
+                <button>Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
     <footer>
-        <h2><span>Proyecto: </span>Stock Offline</h2>
-        <div>
-            <p>HTML5</p>
-            <p>CSS3</p>
-            <p>JavaScript</p>
-        </div>
+      <h2><span>Proyecto: </span>Stock Offline</h2>
+      <div>
+        <p>HTML5</p>
+        <p>CSS3</p>
+        <p>JavaScript</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
