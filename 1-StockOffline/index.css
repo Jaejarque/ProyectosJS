@@ -1,13 +1,24 @@
+:root{
+    --color1: #780000;
+    --color2: #c1121f;
+    --color3: #fdf0d5;
+    --color4: #003049;
+    --color5: #669bbc;
+    --accept: #00e60b;
+    --warning: #f5f849;
+    --danger: #ee0808;
+}
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 body {
-    background-color: blue;
+    background-color: var(--color3);
     display: flex;
     position: relative;
     flex-direction: column;
@@ -16,13 +27,22 @@ body {
 }
 
 header {
-    background-color: green;
+    background-color:var(--color4);
+    border-bottom: 1px solid var(--color4);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,.5);
     width: 100%;
     padding: 10px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
+}
+header h1 span{
+    font-weight: 500;
+}
+header h1{
+    color:var(--color3);
 }
 
 header div {
@@ -33,26 +53,38 @@ header div {
 }
 
 header div button {
-    background-color: aqua;
+    border:none;
+    background-color: var(--color5);
+    color:white;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
+    transition:0.2s ease;
+    &:hover{
+        filter:contrast(2);
+    }
 }
 
 main {
-    background-color: yellow;
     width: 100%;
     padding: 10px 40px;
     flex: 1;
 }
 
 footer {
-    background-color: orange;
     width: 100%;
     padding: 10px 40px;
     position: relative;
+    background-color: var(--color4);
+    box-shadow: 0px -2px 4px 0px rgba(0,0,0,.5);
 }
-
+footer h2{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1rem;
+    margin:10px;
+    color:white;
+}
 .cont_input_search {
     width: 100%;
     margin-bottom: 10px;
@@ -62,7 +94,12 @@ footer {
     width: 100%;
     padding: 10px;
     border-radius: 6px;
-
+    margin-top:20px;
+    font-size: 1.05rem;
+    border:2px solid var(--color4);
+    &:focus{
+        outline: none;
+    }
 }
 
 .cont_filters div select {
@@ -75,17 +112,47 @@ footer {
 
 .cont_table {
     padding: 10px 0px;
-    background-color: brown;
+
     overflow-x: auto;
 }
 
 .cont_table table {
     /*Estilos de la tabla*/
+    width:100%;
+    border:1px solid var(--color4);
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.cont_table table thead{
+    background-color: var(--color4);
+    color:white;
+}
+.cont_table table thead tr th{
+    padding:10px 0px;
+    min-width:120px;
+}
+.cont_table table tbody tr td{
+    padding:10px 0px;
+    text-align: center;
+}
+.cont_table table tbody tr:nth-child(even){
+    background-color: var(--color5);
+}
+.cont_table table tbody tr{
+    border-bottom: 1px solid var(--color4);
+}
+.cont_table table tbody tr td button{
+    border: 1px solid var(--color4);
+    border-radius: 4px;
+    padding: 2px 4px;
+    cursor: pointer;
+
 }
 .icon_tecnologias{
     width: 30px;
     height: 30px;
-    background-color: black;
+
 }
 .cont_icons_tecno{
     display:flex;
@@ -93,13 +160,88 @@ footer {
     justify-content: center;
     align-items: center;
 }
-footer h2{
-    text-align: center;
-}
+
 .btn_nuevo{
-    background-color: black;
-    padding:10px 40px;
+    cursor: pointer;
+    padding:6px 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    border-radius: 6px;
+    border:none;
+    background-color: var(--color4);
+    color:white;
+    transition: 0.2s ease;
+    &:hover{
+        background-color: var(--color5);
+    }
 }
+.cont_option select{
+    border-radius: 6px;
+    border:1px solid var(--color4);
+    &:focus{
+        border:none;
+    }
+}
+.label_chk{
+    border:1px solid var(--color4);
+    padding:5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    margin:0px 4px;
+    &:has(.input_chk:checked){
+        background-color: var(--color4);
+        color:white;
+    }
+}
+.label_chk .input_chk{
+    display:none;
+}
+.cont_chk{
+    display: flex;
+    flex-wrap: wrap;
+}
+.estadoconstock{
+    font-size: 0.8rem;
+    background-color: var(--accept);
+    padding:4px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    color:black;
+    user-select: none;
+}
+.estadopocostock{
+    font-size: 0.8rem;
+    background-color: var(--warning);
+    padding:4px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    color:black;
+    user-select: none;
+}
+.estadosinstock{
+    font-size: 0.8rem;
+    background-color: var(--danger);
+    padding:4px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    color:black;
+    user-select: none;
+}
+.btn_add, .btn_less, .btn_edit{
+    background-color: var(--color4);
+    color:white;
+}
+.btn_del{
+    background-color: var(--color1);
+    color:white;
+    &:hover{
+        background-color: var(--color2);
+    }
+}
+
 @media (min-width: 768px) {
     header {
         flex-direction: row;
