@@ -262,7 +262,7 @@ footer h2{
     height: 100vh;
     background-color: var(--color3);
     overflow-y: auto;
-    animation: open_historial 0.3s ease-in-out forwards;
+    animation: open_historial_mobile 0.3s ease-in-out forwards;
 }
 .header_historial{
     display:flex;
@@ -386,6 +386,7 @@ footer h2{
     }
     .historial{
         width:50%;
+        animation: open_historial 0.3s ease-in-out forwards;
     }
 }
 
@@ -396,6 +397,14 @@ footer h2{
     }
     100%{
         width:50%;
+    }
+}
+@keyframes open_historial_mobile {
+    0%{
+        width: 30%;
+    }
+    100%{
+        width:100%;
     }
 }
 @keyframes show_historial {
