@@ -4,9 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="./ui/modalnuevoproducto.css"/>
   <title>Stock Offline</title>
 </head>
 <body>
+  <section class="cont_nuevo">
+    <div class="card_nuevo">
+      <div class="header_nuevo">
+        <h2>Nuevo producto</h2>
+        <button class="btn_close_nuevo">
+            <svg data-slot="icon" width="20px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+      </div>
+
+      <div class="card_description">
+        Completa los campos para crear un nuevo producto
+      </div>
+
+      <div class="cont_producto_nuevo">
+        <label>Producto</label>
+        <input type="text" placeholder="Nombre del producto" class="inputs_productos"/>
+      </div>
+
+      <div class="cont_catuni_nuevo">
+        <div>
+          <label>Categoria</label>
+          <input type="text" placeholder="Categoria del producto" class="inputs_productos"/>
+        </div>
+        <div>
+          <label>Unidad</label>
+          <select>
+            <option>Seleccionar unidad...</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cont_stock_nuevoproducto">
+        <div>
+          <label>Stock actual</label>
+          <input type="number" min="0"/>
+        </div>
+        <div>
+          <label>Stock minimo</label>
+          <input type="number" min="0"/>
+        </div>
+      </div>
+
+      <div class="cont_button_nuevoproducto">
+        <button class="btn_cancelar">Cancelar</button>
+        <button class="btn_guardar">Guardar</button>
+      </div>
+    </div>
+  </section>
   <section class="cont_historial">
     <div class="historial">
       <div class="header_historial">
@@ -266,5 +317,6 @@
     </div>
   </footer>
   <script src="./ui/historial.js"></script>
+  <script src="./ui/nuevo.js"></script>
 </body>
 </html>

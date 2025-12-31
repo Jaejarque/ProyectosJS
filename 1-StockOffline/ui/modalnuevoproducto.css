@@ -1,0 +1,241 @@
+/* Modal Overlay */
+.cont_nuevo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    display:none;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Modal Content */
+.card_nuevo {
+    background-color: var(--color3);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(10px);
+    animation: modalIn 0.2s ease-out forwards;
+    padding: 24px;
+}
+
+/* Header */
+.header_nuevo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color4);
+    padding-bottom: 12px;
+}
+
+.header_nuevo h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+.header_nuevo button {
+    background: var(--color1);
+    border: none;
+    cursor: pointer;
+    color: var(--color3);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.header_nuevo button:hover {
+    background-color: var(--color2);
+    color: white;
+}
+
+/* Description */
+.card_description {
+    margin-bottom: 20px;
+    color: var(--color4);
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Form Sections */
+.cont_producto_nuevo,
+.cont_catuni_nuevo,
+.cont_stock_nuevoproducto {
+    margin-bottom: 16px;
+}
+
+.cont_producto_nuevo label,
+.cont_catuni_nuevo label,
+.cont_stock_nuevoproducto label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color4);
+}
+
+/* Inputs */
+.inputs_productos,
+.cont_catuni_nuevo select,
+.cont_stock_nuevoproducto input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color4);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background-color: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputs_productos:focus,
+.cont_catuni_nuevo select:focus,
+.cont_stock_nuevoproducto input:focus {
+    outline: none;
+    border-color: var(--color5);
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.1);
+}
+
+/* Category and Unit Row */
+.cont_catuni_nuevo {
+    display: flex;
+    gap: 12px;
+}
+
+.cont_catuni_nuevo div {
+    flex: 1;
+}
+
+.cont_catuni_nuevo select {
+    width: 100%;
+}
+
+/* Stock Row */
+.cont_stock_nuevoproducto {
+    display: flex;
+    gap: 12px;
+}
+
+.cont_stock_nuevoproducto div {
+    flex: 1;
+}
+
+.cont_stock_nuevoproducto input {
+    width: 100%;
+}
+
+/* Buttons */
+.cont_botones_nuevo {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color4);
+}
+
+.btn_cancelar,
+.btn_guardar {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_cancelar {
+    background-color: var(--color3);
+    color: var(--color4);
+    border: 1px solid var(--color4);
+}
+
+.btn_cancelar:hover {
+    background-color: var(--color4);
+    color: var(--color3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn_cancelar:active {
+    transform: translateY(0);
+}
+
+.btn_guardar {
+    background-color: var(--color5);
+    color: white;
+}
+
+.btn_guardar:hover {
+    background-color: var(--color4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 187, 188, 0.3);
+}
+
+.btn_guardar:active {
+    transform: translateY(0);
+}
+
+.btn_cancelar:focus,
+.btn_guardar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .card_nuevo {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .cont_catuni_nuevo,
+    .cont_stock_nuevoproducto {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .cont_botones_nuevo {
+        flex-direction: column;
+    }
+
+    .btn_cancelar,
+    .btn_guardar {
+        width: 100%;
+    }
+}
