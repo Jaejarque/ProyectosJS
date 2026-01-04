@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css"/>
   <link rel="stylesheet" href="./ui/modalnuevoproducto.css"/>
+  <link rel="stylesheet" href="./ui/operacion.css"/>
   <title>Stock Offline</title>
 </head>
 <body>
@@ -55,6 +56,144 @@
       <div class="cont_button_nuevoproducto">
         <button class="btn_cancelar">Cancelar</button>
         <button class="btn_guardar">Guardar</button>
+      </div>
+    </div>
+  </section>
+  <section class="cont_agregar">
+    <div class="card_agregar">
+      <div class="header_agregar">
+        <h2>Agregar Stock</h2>
+        <button class="btn_close_agregar">
+          <svg data-slot="icon" width="20px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="card_description">
+        Agrega stock al producto seleccionado
+      </div>
+      <div class="cont_producto_agregar">
+        <label>Nombre del producto</label>
+        <input type="text" placeholder="Nombre del producto" class="inputs_productos" readonly>
+      </div>
+      <div class="cont_cantidad_agregar">
+        <label>Cantidad a agregar</label>
+        <input type="number" min="1" class="inputs_productos">
+      </div>
+      <div class="cont_observaciones_agregar">
+        <label>Observaciones</label>
+        <textarea placeholder="Observaciones..." class="inputs_productos" rows="4"></textarea>
+      </div>
+      <div class="cont_button_agregar">
+        <button class="btn_cancelar">Cancelar</button>
+        <button class="btn_guardar">Guardar</button>
+      </div>
+    </div>
+  </section>
+  <section class="cont_quitar">
+    <div class="card_quitar">
+      <div class="header_quitar">
+        <h2>Quitar Stock</h2>
+        <button class="btn_close_quitar">
+          <svg data-slot="icon" width="20px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="card_description_quitar">
+        Quita stock del producto seleccionado
+      </div>
+      <div class="cont_producto_quitar">
+        <label>Nombre del producto</label>
+        <input type="text" placeholder="Nombre del producto" class="inputs_productos_quitar" readonly>
+      </div>
+      <div class="cont_cantidad_quitar">
+        <label>Cantidad a quitar</label>
+        <input type="number" min="1" class="inputs_productos_quitar">
+      </div>
+      <div class="cont_observaciones_quitar">
+        <label>Observaciones</label>
+        <textarea placeholder="Observaciones..." class="inputs_productos_quitar" rows="4"></textarea>
+      </div>
+      <div class="cont_button_quitar">
+        <button class="btn_cancelar_quitar">Cancelar</button>
+        <button class="btn_eliminar">Eliminar</button>
+      </div>
+    </div>
+  </section>
+  <section class="cont_editar">
+    <div class="card_editar">
+      <div class="header_editar">
+        <h2>Editar Producto</h2>
+        <button class="btn_close_editar">
+          <svg data-slot="icon" width="20px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="card_description_editar">
+        Edita los datos del producto seleccionado
+      </div>
+      <div class="cont_producto_editar">
+        <label>Producto</label>
+        <input type="text" placeholder="Nombre del producto" class="inputs_productos_editar">
+      </div>
+      <div class="cont_catuni_editar">
+        <div>
+          <label>Categoria</label>
+          <input type="text" placeholder="Categoria del producto" class="inputs_productos_editar">
+        </div>
+        <div>
+          <label>Unidad</label>
+          <select class="inputs_productos_editar">
+            <option>Seleccionar unidad...</option>
+          </select>
+        </div>
+      </div>
+      <div class="cont_stock_editar">
+        <div>
+          <label>Stock actual</label>
+          <input type="number" min="0" class="inputs_productos_editar">
+        </div>
+        <div>
+          <label>Stock minimo</label>
+          <input type="number" min="0" class="inputs_productos_editar">
+        </div>
+      </div>
+      <div class="cont_button_editar">
+        <button class="btn_cancelar_editar">Cancelar</button>
+        <button class="btn_actualizar">Actualizar</button>
+      </div>
+    </div>
+  </section>
+  <section class="cont_confirmar_borrar">
+    <div class="card_confirmar_borrar">
+      <div class="header_confirmar_borrar">
+        <h2>Confirmar Borrado</h2>
+        <button class="btn_close_confirmar_borrar">
+          <svg data-slot="icon" width="20px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="card_description_confirmar_borrar">
+        ¿Estás seguro de que quieres borrar este producto? Esta acción no se puede deshacer.
+      </div>
+      <div class="cont_producto_confirmar_borrar">
+        <label>Nombre del producto</label>
+        <input type="text" placeholder="Nombre del producto" class="inputs_productos_confirmar_borrar" readonly>
+      </div>
+      <div class="cont_cantidad_confirmar_borrar">
+        <label>Cantidad</label>
+        <input type="number" placeholder="Cantidad" class="inputs_productos_confirmar_borrar" readonly>
+      </div>
+      <div class="cont_observaciones_confirmar_borrar">
+        <label>Observaciones</label>
+        <textarea placeholder="Observaciones..." class="inputs_productos_confirmar_borrar" rows="4"></textarea>
+      </div>
+      <div class="cont_button_confirmar_borrar">
+        <button class="btn_cancelar_confirmar_borrar">Cancelar</button>
+        <button class="btn_confirmar_borrar">Confirmar Borrado</button>
       </div>
     </div>
   </section>

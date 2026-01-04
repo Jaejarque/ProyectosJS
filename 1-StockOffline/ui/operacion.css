@@ -1,0 +1,806 @@
+/* Modal Overlay */
+.cont_agregar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    /*Display para mostrar MODAL AGREGAR*/
+    display:none;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Modal Content */
+.card_agregar {
+    background-color: var(--color3);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(10px);
+    animation: modalIn 0.2s ease-out forwards;
+    padding: 24px;
+}
+
+/* Header */
+.header_agregar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color4);
+    padding-bottom: 12px;
+}
+
+.header_agregar h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+.header_agregar button {
+    background: var(--color1);
+    border: none;
+    cursor: pointer;
+    color: var(--color3);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.header_agregar button:hover {
+    background-color: var(--color2);
+    color: white;
+}
+
+/* Description */
+.card_description {
+    margin-bottom: 20px;
+    color: var(--color4);
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Form Sections */
+.cont_producto_agregar,
+.cont_cantidad_agregar,
+.cont_observaciones_agregar {
+    margin-bottom: 16px;
+}
+
+.cont_producto_agregar label,
+.cont_cantidad_agregar label,
+.cont_observaciones_agregar label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color4);
+}
+
+/* Inputs */
+.inputs_productos {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color4);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background-color: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputs_productos:focus {
+    outline: none;
+    border-color: var(--color5);
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.1);
+}
+
+textarea.inputs_productos {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Buttons */
+.cont_button_agregar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color4);
+}
+
+.btn_cancelar,
+.btn_guardar {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_cancelar {
+    background-color: var(--color3);
+    color: var(--color4);
+    border: 1px solid var(--color4);
+}
+
+.btn_cancelar:hover {
+    background-color: var(--color4);
+    color: var(--color3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn_cancelar:active {
+    transform: translateY(0);
+}
+
+.btn_guardar {
+    background-color: var(--color5);
+    color: white;
+}
+
+.btn_guardar:hover {
+    background-color: var(--color4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 187, 188, 0.3);
+}
+
+.btn_guardar:active {
+    transform: translateY(0);
+}
+
+.btn_cancelar:focus,
+.btn_guardar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .card_agregar {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .cont_button_agregar {
+        flex-direction: column;
+    }
+
+    .btn_cancelar,
+    .btn_guardar {
+        width: 100%;
+    }
+}
+
+/* Modal Overlay para Quitar */
+.cont_quitar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    /*Display para mostrar MODAL QUITAR*/
+    display:none;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Modal Content para Quitar */
+.card_quitar {
+    background-color: var(--color3);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(10px);
+    animation: modalIn 0.2s ease-out forwards;
+    padding: 24px;
+}
+
+/* Header para Quitar */
+.header_quitar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color4);
+    padding-bottom: 12px;
+}
+
+.header_quitar h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+.header_quitar button {
+    background: var(--color1);
+    border: none;
+    cursor: pointer;
+    color: var(--color3);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.header_quitar button:hover {
+    background-color: var(--color2);
+    color: white;
+}
+
+/* Description para Quitar */
+.card_description_quitar {
+    margin-bottom: 20px;
+    color: var(--color4);
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Form Sections para Quitar */
+.cont_producto_quitar,
+.cont_cantidad_quitar,
+.cont_observaciones_quitar {
+    margin-bottom: 16px;
+}
+
+.cont_producto_quitar label,
+.cont_cantidad_quitar label,
+.cont_observaciones_quitar label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color4);
+}
+
+/* Inputs para Quitar */
+.inputs_productos_quitar {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color4);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background-color: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputs_productos_quitar:focus {
+    outline: none;
+    border-color: var(--color5);
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.1);
+}
+
+textarea.inputs_productos_quitar {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Buttons para Quitar */
+.cont_button_quitar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color4);
+}
+
+.btn_cancelar_quitar,
+.btn_eliminar {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_cancelar_quitar {
+    background-color: var(--color3);
+    color: var(--color4);
+    border: 1px solid var(--color4);
+}
+
+.btn_cancelar_quitar:hover {
+    background-color: var(--color4);
+    color: var(--color3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn_cancelar_quitar:active {
+    transform: translateY(0);
+}
+
+.btn_eliminar {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: white;
+}
+
+.btn_eliminar:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.btn_eliminar:active {
+    transform: translateY(0);
+}
+
+.btn_cancelar_quitar:focus,
+.btn_eliminar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.2);
+}
+
+/* Responsive para Quitar */
+@media (max-width: 640px) {
+    .card_quitar {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .cont_button_quitar {
+        flex-direction: column;
+    }
+
+    .btn_cancelar_quitar,
+    .btn_eliminar {
+        width: 100%;
+    }
+}
+
+/* Modal Overlay para Editar */
+.cont_editar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    /*Display para mostrar MODAL EDITAR*/
+    display:none;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Modal Content para Editar */
+.card_editar {
+    background-color: var(--color3);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(10px);
+    animation: modalIn 0.2s ease-out forwards;
+    padding: 24px;
+}
+
+/* Header para Editar */
+.header_editar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color4);
+    padding-bottom: 12px;
+}
+
+.header_editar h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+.header_editar button {
+    background: var(--color1);
+    border: none;
+    cursor: pointer;
+    color: var(--color3);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.header_editar button:hover {
+    background-color: var(--color2);
+    color: white;
+}
+
+/* Description para Editar */
+.card_description_editar {
+    margin-bottom: 20px;
+    color: var(--color4);
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Form Sections para Editar */
+.cont_producto_editar,
+.cont_categoria_editar,
+.cont_stock_editar,
+.cont_unidad_editar,
+.cont_stock_minimo_editar {
+    margin-bottom: 16px;
+}
+
+.cont_producto_editar label,
+.cont_categoria_editar label,
+.cont_stock_editar label,
+.cont_unidad_editar label,
+.cont_stock_minimo_editar label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color4);
+}
+
+/* Contenedor para categoria y unidad */
+.cont_catuni_editar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cont_catuni_editar > div {
+    flex: 1;
+}
+
+/* Contenedor para stock y stock minimo */
+.cont_stock_editar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cont_stock_editar > div {
+    flex: 1;
+}
+
+/* Inputs para Editar */
+.inputs_productos_editar {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color4);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background-color: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputs_productos_editar:focus {
+    outline: none;
+    border-color: var(--color5);
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.1);
+}
+
+/* Buttons para Editar */
+.cont_button_editar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color4);
+}
+
+.btn_cancelar_editar,
+.btn_actualizar {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_cancelar_editar {
+    background-color: var(--color3);
+    color: var(--color4);
+    border: 1px solid var(--color4);
+}
+
+.btn_cancelar_editar:hover {
+    background-color: var(--color4);
+    color: var(--color3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn_cancelar_editar:active {
+    transform: translateY(0);
+}
+
+.btn_actualizar {
+    background-color: var(--color5);
+    color: white;
+}
+
+.btn_actualizar:hover {
+    background-color: var(--color4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 187, 188, 0.3);
+}
+
+.btn_actualizar:active {
+    transform: translateY(0);
+}
+
+.btn_cancelar_editar:focus,
+.btn_actualizar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.2);
+}
+
+/* Responsive para Editar */
+@media (max-width: 640px) {
+    .card_editar {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .cont_button_editar {
+        flex-direction: column;
+    }
+
+    .btn_cancelar_editar,
+    .btn_actualizar {
+        width: 100%;
+    }
+
+    .cont_catuni_editar,
+    .cont_stock_editar {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+/* Modal Overlay para Confirmar Borrar */
+.cont_confirmar_borrar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    /*Display para mostrar MODAL CONFIRMAR BORRAR*/
+    display:none;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Modal Content para Confirmar Borrar */
+.card_confirmar_borrar {
+    background-color: var(--color3);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95) translateY(10px);
+    animation: modalIn 0.2s ease-out forwards;
+    padding: 24px;
+}
+
+/* Header para Confirmar Borrar */
+.header_confirmar_borrar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--color4);
+    padding-bottom: 12px;
+}
+
+.header_confirmar_borrar h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color4);
+}
+
+.header_confirmar_borrar button {
+    background: var(--color1);
+    border: none;
+    cursor: pointer;
+    color: var(--color3);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.header_confirmar_borrar button:hover {
+    background-color: var(--color2);
+    color: white;
+}
+
+/* Description para Confirmar Borrar */
+.card_description_confirmar_borrar {
+    margin-bottom: 20px;
+    color: var(--color4);
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Form Sections para Confirmar Borrar */
+.cont_producto_confirmar_borrar,
+.cont_cantidad_confirmar_borrar,
+.cont_observaciones_confirmar_borrar {
+    margin-bottom: 16px;
+}
+
+.cont_producto_confirmar_borrar label,
+.cont_cantidad_confirmar_borrar label,
+.cont_observaciones_confirmar_borrar label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color4);
+}
+
+/* Inputs para Confirmar Borrar */
+.inputs_productos_confirmar_borrar {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color4);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background-color: #f8f9fa; /* Gris claro para readonly */
+    color: var(--color4);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputs_productos_confirmar_borrar:focus {
+    outline: none;
+    border-color: var(--color5);
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.1);
+}
+
+textarea.inputs_productos_confirmar_borrar {
+    resize: vertical;
+    min-height: 80px;
+    background-color: white; /* Editable */
+    color: var(--color4);
+}
+
+/* Buttons para Confirmar Borrar */
+.cont_button_confirmar_borrar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color4);
+}
+
+.btn_cancelar_confirmar_borrar,
+.btn_confirmar_borrar {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn_cancelar_confirmar_borrar {
+    background-color: var(--color3);
+    color: var(--color4);
+    border: 1px solid var(--color4);
+}
+
+.btn_cancelar_confirmar_borrar:hover {
+    background-color: var(--color4);
+    color: var(--color3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn_cancelar_confirmar_borrar:active {
+    transform: translateY(0);
+}
+
+.btn_confirmar_borrar {
+    background-color: #dc3545; /* Rojo para confirmar borrar */
+    color: white;
+}
+
+.btn_confirmar_borrar:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.btn_confirmar_borrar:active {
+    transform: translateY(0);
+}
+
+.btn_cancelar_confirmar_borrar:focus,
+.btn_confirmar_borrar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 187, 188, 0.2);
+}
+
+/* Responsive para Confirmar Borrar */
+@media (max-width: 640px) {
+    .card_confirmar_borrar {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .cont_button_confirmar_borrar {
+        flex-direction: column;
+    }
+
+    .btn_cancelar_confirmar_borrar,
+    .btn_confirmar_borrar {
+        width: 100%;
+    }
+}
