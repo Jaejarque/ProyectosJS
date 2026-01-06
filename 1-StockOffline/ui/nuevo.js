@@ -1,5 +1,6 @@
 import { savelocalstorage, getlocalstorage } from "../index.js";
 import { CONST_LS_PRODUCTOS } from "../const/const.js";
+import { viewTable } from "../ui/table.js"
 //DOM Modal
 const btn_nuevo = document.querySelector(".btn_nuevo");
 const cont_nuevo = document.querySelector(".cont_nuevo");
@@ -67,4 +68,6 @@ btn_save.addEventListener("click", () => {
 
     savelocalstorage(CONST_LS_PRODUCTOS, nuevoproductoDOM);
     alert("Producto guardado exitosamente");
+    close_nuevo();
+    viewTable();
 })

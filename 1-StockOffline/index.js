@@ -1,13 +1,14 @@
 import { CONST_UNIDADES } from "./const/const.js";
+import { viewTable } from "./ui/table.js";
 
 export function savelocalstorage(nombrels, objeto){
     let existencia = JSON.parse(localStorage.getItem(nombrels))
     if(!existencia){
-        localStorage.setItem(nombrels, JSON.stringify(objeto));
+        localStorage.setItem(nombrels, JSON.stringify([objeto]));
         return;
     }
-    let agregado = [existencia, objeto];
-    localStorage.setItem(nombrels, JSON.stringify(agregado));
+    existencia.push(objeto);
+    localStorage.setItem(nombrels, JSON.stringify(existencia));
 }
 
 export function getlocalstorage(nombrels){
@@ -21,4 +22,9 @@ CONST_UNIDADES.forEach( unidad => {
     unidadDOM.value = unidad;
     unidadDOM.textContent = unidad;
     selectUnidades.appendChild(unidadDOM);
+})
+
+//Logica al comenzar todo
+document.addEventListener("DOMContentLoaded", () => {
+    viewTable();
 })
