@@ -30,8 +30,7 @@ El sistema permitira:
 - HTML5
 - CSS3
 - JavaScript Vanilla (ES6+)
-- IndexedDB (Persistencia local)
-- LocalStorage (Configuracion)
+- LocalStorage (Persistencia local)
 - Service Worker (Opcional / PWA)
 
 -----------------
@@ -137,7 +136,7 @@ El sistema debe permitir:
 ├── main.js
 │
 ├── core/
-│   ├── db.js            // IndexedDB
+│   ├── db.js            // LocalS.
 │   ├── stock.js         // Lógica de stock
 │   ├── products.js      // CRUD productos
 │   └── movements.js     // Historial
@@ -159,7 +158,7 @@ El sistema debe permitir:
 **CU-01 Agregar producto**
 1. Usuario completa formulario
 2. Sistema valida datos
-3. Producto se guarde en IndexedDB
+3. Producto se guarde en LocalStorage
 4. Se actualiza la vista
 
 ------------------------
