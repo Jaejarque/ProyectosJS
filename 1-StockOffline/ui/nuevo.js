@@ -1,5 +1,5 @@
 import { savelocalstorage, getlocalstorage } from "../index.js";
-import { CONST_LS_PRODUCTOS } from "../const/const.js";
+import { CONST_LS_HISTORIAL, CONST_LS_PRODUCTOS, CONST_MESES } from "../const/const.js";
 import { viewTable } from "../ui/table.js"
 //DOM Modal
 const btn_nuevo = document.querySelector(".btn_nuevo");
@@ -36,6 +36,7 @@ function close_nuevo(){
 
 //Logica de creacion de nuevo producto.
 //Objeto para guardar en ls
+const date = new Date();
 const nuevoproductoDOM = {
     producto: "",
     categoria: "",
@@ -43,18 +44,29 @@ const nuevoproductoDOM = {
     stockactual: 0,
     stockminimo: 0
 }
+const historialcreado = {
+    fecha: `${date.getDate()} ${CONST_MESES[date.getMonth()]} ${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`,
+    tipo: "Creado",
+    producto: "",
+    unidad: "",
+    observaciones: "",
+    cantidad: 0,
+}
 
 nuevoproducto.addEventListener("input", e => {
     nuevoproductoDOM.producto = e.target.value;
+    historialcreado.producto = e.target.value;
 })
 categoria.addEventListener("input", e => {
     nuevoproductoDOM.categoria = e.target.value;
 })
 unidad.addEventListener("input", e => {
     nuevoproductoDOM.unidad = e.target.value;
+    historialcreado.unidad = e.target.value;
 })
 stockactual.addEventListener("input", e => {
     nuevoproductoDOM.stockactual = e.target.value;
+    historialcreado.cantidad = e.target.value;
 })
 stockminimo.addEventListener("input", e => {
     nuevoproductoDOM.stockminimo = e.target.value;
@@ -67,6 +79,7 @@ btn_save.addEventListener("click", () => {
     }
 
     savelocalstorage(CONST_LS_PRODUCTOS, nuevoproductoDOM);
+    savelocalstorage(CONST_LS_HISTORIAL, historialcreado);
     alert("Producto guardado exitosamente");
     close_nuevo();
     viewTable();

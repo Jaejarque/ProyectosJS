@@ -1,5 +1,6 @@
 import { CONST_UNIDADES } from "./const/const.js";
 import { viewTable } from "./ui/table.js";
+import { viewHistorial } from "./ui/historial.js";
 
 export function savelocalstorage(nombrels, objeto){
     let existencia = JSON.parse(localStorage.getItem(nombrels))
@@ -27,4 +28,5 @@ CONST_UNIDADES.forEach( unidad => {
 //Logica al comenzar todo
 document.addEventListener("DOMContentLoaded", () => {
     viewTable();
+    viewHistorial();
 })
