@@ -13,6 +13,8 @@ export function viewTable(){
     if(resultadoLS){
         resultadoLS.forEach( (producto, index) => {
             const tr = document.createElement("tr");
+            tr.classList.add("resultadosdeproductos")
+            tr.id = producto.producto
             
             const id = document.createElement("td");
             id.textContent = index + 1;
@@ -20,6 +22,7 @@ export function viewTable(){
             const product = document.createElement("td");
             product.style.fontWeight = "800";
             product.textContent = producto.producto;
+            product.classList.add("resultado_producto")
 
             const categoria = document.createElement("td");
             categoria.textContent = producto.categoria;
