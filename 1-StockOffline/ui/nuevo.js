@@ -1,6 +1,7 @@
 import { savelocalstorage, getlocalstorage } from "../index.js";
 import { CONST_LS_HISTORIAL, CONST_LS_PRODUCTOS, CONST_MESES } from "../const/const.js";
 import { viewTable } from "../ui/table.js"
+import { updateCategorias } from "./categoria.js";
 //DOM Modal
 const btn_nuevo = document.querySelector(".btn_nuevo");
 const cont_nuevo = document.querySelector(".cont_nuevo");
@@ -83,4 +84,5 @@ btn_save.addEventListener("click", () => {
     alert("Producto guardado exitosamente");
     close_nuevo();
     viewTable();
+    updateCategorias();
 })
